@@ -47,7 +47,7 @@ Profile.defaultProps = {
   children: (
     <img
       style={{ width: "240px", borderRadius: "15px" }}
-      src="photo.jpg"
+      src="image.jpg"
       alt="Sherlock's photo"
     />
   ),
