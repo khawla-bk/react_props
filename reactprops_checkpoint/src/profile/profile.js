@@ -1,18 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-function HandleName(FullName) {
-  return alert(FullName);
-}
+import Image from "./image.jpg";
+import { Button } from "react-bootstrap";
+import "../App.css";
 
 function Profile(props) {
+  function HandleName(FullName) {
+    alert(FullName);
+  }
   return (
     <div
       className="main"
       style={{
         display: "flex",
         justifyContent: "spacAround",
-        padding: "125px",
+        padding: "125px"
       }}
     >
       <div
@@ -22,7 +24,7 @@ function Profile(props) {
           fontSize: "21px",
           fontFamily: "ubuntu, sans-serif",
           letterSpacing: "3px",
-          lineHeight: "15px",
+          lineHeight: "20px"
         }}
       >
         <div> {props.FullName}</div>
@@ -35,28 +37,38 @@ function Profile(props) {
       </div>
       <div> {props.children}</div>
 
-      <div>{HandleName(props.FullName)}</div>
+      <Button
+        className="btn-style"
+        variant="dark"
+        size="sm"
+        block
+        onClick={() => HandleName(props.FullName)}
+      >
+        {" "}
+        Click me!{" "}
+      </Button>
     </div>
   );
 }
 
 Profile.defaultProps = {
   FullName: "Sherlock Holmes",
-  bio: "You know my methods, Watson. When you have eliminated the impossible, whatever remains, however improbable, must be the truth?",
+  bio:
+    "You know my methods, Watson. When you have eliminated the impossible, whatever remains, however improbable, must be the truth?",
   profession: "Detective",
   children: (
     <img
       style={{ width: "240px", borderRadius: "15px" }}
-      src="image.jpg"
-      alt="Sherlock's photo"
+      src={Image}
+      alt="Sherlock's pic"
     />
-  ),
+  )
 };
 Profile.propTypes = {
   FullName: PropTypes.string,
   bio: PropTypes.string,
   profession: PropTypes.string,
-  HandleName: PropTypes.func,
+  HandleName: PropTypes.func
 };
 
 export default Profile;
