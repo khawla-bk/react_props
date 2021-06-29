@@ -1,13 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Image from "./image.jpg";
+
 import { Button } from "react-bootstrap";
 import "../App.css";
 
 function Profile(props) {
-  function HandleName(FullName) {
-    alert(FullName);
-  }
+
   return (
     <div
       className="main"
@@ -42,7 +40,7 @@ function Profile(props) {
         variant="dark"
         size="sm"
         block
-        onClick={() => HandleName(props.FullName)}
+        onClick={() => props.HandleName(props.FullName)}
       >
         {" "}
         Click me!{" "}
@@ -55,14 +53,8 @@ Profile.defaultProps = {
   FullName: "Sherlock Holmes",
   bio:
     "You know my methods, Watson. When you have eliminated the impossible, whatever remains, however improbable, must be the truth?",
-  profession: "Detective",
-  children: (
-    <img
-      style={{ width: "240px", borderRadius: "15px" }}
-      src={Image}
-      alt="Sherlock's pic"
-    />
-  )
+  profession: "Detective"
+
 };
 Profile.propTypes = {
   FullName: PropTypes.string,
